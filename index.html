@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Akshayam Tech Fest 2k25</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+            background: #9191d4;
+            margin: 0;
+            color: #111;
+            /* Add background image styles here */
+            background-image: url('vicas.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            max-width: 1000px;
+            margin: 16px auto;
+        }
+        
+        .event-card {
+            background: #fff;
+            padding: 18px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-4px);
+            transition: all .18s ease;
+        }
+        
+        .event-card.important {
+            border: 2px solid #2c7;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 16px;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .site-header {
+            background: #111;
+            color: #2b1b6b;
+            position: sticky;
+            top: 0;
+            padding: 12px 16px;
+            z-index: 1000;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 12px;
+            margin-left: auto;
+        }
+        
+        .college-info {
+            text-align: center;
+            padding: 18px;
+            background: linear-gradient(90deg, #003366, #0055aa);
+            color: #fff;
+            border-bottom: 4px solid #ffcc00;
+        }
+        
+        .count-label {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #003366;
+            font-weight: 600;
+        }
+        
+        .about-section {
+            margin-top: 28px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .about-section h2 {
+            color: #003366;
+            margin-top: 0;
+        }
+        /* New CSS for single column layout */
+        
+        @media (max-width: 768px) {
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Adjust colors for better readability against the background image */
+        
+        section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        section#about {
+            margin-top: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container" style="display:flex; align-items:center;">
+            <div style="font-weight:1000;"><b><h2>Akshayam Tech Fest 2k25</h2></b></div>
+            <nav class="nav" style="margin-left:auto;">
+                <a href="index.html" style="color:#2b1b6b;">Home</a>
+                <a href="#about" style="color:#2b1b6b;">About</a>
+                <a href="#events" style="color:#2b1b6b;">Events</a>
+                <a href="register.html" style="color:#2b1b6b;">Register</a>
+                <a href="admin.html" style="color:#2b1b6b;">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="college-info" style="display: flex; align-items: center; justify-content: center; padding: 18px;">
+        <img src="logo.jpg" alt="Logo" width="75" height="50">
+        <div style="text-align: center;">
+            <h1 style="margin:0; font-size:1.6rem; letter-spacing:2px;">VIVEKANANDHA</h1>
+            <div style="font-weight:700; margin-top:6px;">COLLEGE OF ARTS AND SCIENCES FOR WOMEN</div>
+            <div style="margin-top:8px; font-size:0.95rem;">
+                (Autonomous) | ISO 9001:2015 | NAAC 'A+' | Elayampalayam, Tiruchengode
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-left: 20px;">
+
+            <img src="nack.jpg" alt="Right Image 1" width="75" height="50">
+            <img src="chair.jpg" alt="Right Image 2" width="75" height="50">
+        </div>
+    </div>
+
+    <main class="container">
+        <section style="text-align:center; padding:28px 8px;">
+            <h2 style="margin:0 0 6px 0; color:#003366;">AKSHAYAM TECH FEST 2k25</h2>
+            <h2><i>10th-October-2025</i></h2>
+            <p style="margin:6px 0 12px 0; color:#087240;">Intercollegiate Technical Symposium — Department of Computer Science & Applications</p> <br>
+
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="about-right">
+                <h2>About Us</h2>
+                <p>Vivekanandha College of Arts and Sciences for Women is a premier institution known for its focus on empowering women through quality education and diverse academic programs.</p>
+                <p>We are delighted to host <strong>Akshayam 2k25</strong> — an Intercollegiate Technical Symposium organized by the Department of Computer Science and Applications. This event brings together brilliant minds to showcase their talent in various
+                    technical events.</p>
+            </div>
+            <section id="events" style="margin-top:18px;">
+                <h3 style="text-align:center; color:#003366;">EVENTS</h3>
+
+                <div class="events-grid" style="grid-template-columns: 1fr;">
+                    <a class="event-card event-link important" href="hacking-rules.html">
+                        <span>🧑‍💻🔐 Ethical Hacking </span>
+                        <span id="hackingCount" class="count-label">Loading...</span>
+                    </a>
+                    <a class="event-card event-link important" href="innosphere-rules.html">
+                        <span>💻 Innosphere</span>
+                        <span id="innosphereCount" class="count-label">Loading...</span>
+                    </a>
+                    <a class="event-card event-link important" href="ar-vr-rules.html">
+                        <span>❓ AR & VR</span>
+                        <span id="arvrCount" class="count-label">Loading...</span>
+                    </a>
+                    <a class="event-card event-link important" href="ui-ux-rules.html">
+                        <span>🐞 UI/UX</span>
+                        <span id="uiuxCount" class="count-label">Loading...</span>
+                    </a>
+                    <a class="event-card event-link important" href="reverse-coding-rules.html">
+                        <span>🎨 Reverse Coding</span>
+                        <span id="reverseCodingCount" class="count-label">Loading...</span>
+                    </a>
+                    <a class="event-card event-link important" href="escape-dark-web-rules.html">
+                        <span>💻 Escape the Dark Web</span>
+                        <span id="escapeDarkWebCount" class="count-label">Loading...</span>
+                    </a>
+                </div>
+
+            </section>
+            <div style="text-align: center;">
+                <a href="register.html" style="background:#003366;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700;">
+        Register Now
+    </a>
+            </div>
+
+
+
+            <section id="contact" style="text-align:center; margin-top:18px;">
+                <h4>Contact</h4>
+                <p>Mr.S.Srinivasan — 9843009494</p>
+                <p>Mr.K.Senthil Kumar — 9500547417</p>
+                <p>Mr.R.Mohana Sundaram — 9566592252</p>
+            </section>
+    </main>
+
+    <footer style="text-align:center; padding:12px 0; color:#444; background-color: rgba(255, 255, 255, 0.85);">
+        © Symposium 2025 — Vivekanandha College of Arts and Sciences for Women, Department of CS & CA.
+    </footer>
+
+    <script>
+        const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQc4zIDq3TY9jCAn3S3GeTTke_GSKh-f5498h1LPTPPe5IGMDl2F3WWyNE6LLRt6FTFGI3F2vgOYaoS/pub?gid=453886173&single=true&output=csv";
+
+        (async function loadCounts() {
+            try {
+                const res = await fetch(sheetURL);
+                const txt = await res.text();
+                const rows = txt.trim().split("\n").map(r => r.split(","));
+                const header = rows[0];
+                const eventIndex = header.findIndex(h => h.toLowerCase().includes("event"));
+
+                // counters
+                let hacking = 0,
+                    innosphere = 0,
+                    arvr = 0,
+                    uiux = 0,
+                    reverseCoding = 0,
+                    escapeDarkWeb = 0;
+
+                for (let i = 1; i < rows.length; i++) {
+                    const ev = (rows[i][eventIndex] || "").toLowerCase().replace(/\s+/g, "");
+                    if (ev.includes("hacking")) hacking++;
+                    if (ev.includes("innosphere")) innosphere++;
+                    if (ev.includes("ar&vr") || ev.includes("arvr")) arvr++;
+                    if (ev.includes("ui/ux") || ev.includes("uiux")) uiux++;
+                    if (ev.includes("reversecoding")) reverseCoding++;
+                    if (ev.includes("escapedarkweb")) escapeDarkWeb++;
+                }
+
+                document.getElementById("hackingCount").innerText = "Registered: " + hacking;
+                document.getElementById("innosphereCount").innerText = "Registered: " + innosphere;
+                document.getElementById("arvrCount").innerText = "Registered: " + arvr;
+                document.getElementById("uiuxCount").innerText = "Registered: " + uiux;
+                document.getElementById("reverseCodingCount").innerText = "Registered: " + reverseCoding;
+                document.getElementById("escapeDarkWebCount").innerText = "Registered: " + escapeDarkWeb;
+            } catch (err) {
+                console.error("Error loading counts:", err);
+            }
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Admin Dashboard - Symposium 2025</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        
+        #loginBox,
+        #dataBox {
+            text-align: center;
+        }
+        
+        input,
+        button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        button {
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #0056b3;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        th {
+            background: #007bff;
+            color: white;
+        }
+        
+        .actions {
+            margin: 15px 0;
+            text-align: right;
+        }
+        
+        #searchBox {
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Admin Dashboard</h2>
+
+        <!-- Login Box -->
+        <div id="loginBox">
+            <p>Enter Admin Credentials:</p>
+            <input type="text" id="adminUser" placeholder="Username" /><br><br>
+            <input type="password" id="adminPass" placeholder="Password" /><br><br>
+            <button onclick="checkLogin()">Login</button>
+            <p id="loginMsg" style="color:red;"></p>
+        </div>
+
+        <!-- Data Box -->
+        <div id="dataBox" style="display:none;">
+            <h3>Registered Participants List</h3>
+            <div class="actions">
+                <input type="text" id="searchBox" placeholder="Search by name/email/event..." onkeyup="filterTable()" />
+                <button onclick="downloadExcel()">⬇ Download Excel</button>
+            </div>
+            <table id="participantsTable">
+                <thead id="tableHead"></thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // ✅ Admin credentials
+        const ADMIN_USERNAME = "admin@cs&ca";
+        const ADMIN_PASSWORD = "sympo2025";
+        let allRows = [];
+
+        function checkLogin() {
+            let user = document.getElementById("adminUser").value.trim();
+            let pass = document.getElementById("adminPass").value.trim();
+            if (user === ADMIN_USERNAME && pass === ADMIN_PASSWORD) {
+                document.getElementById("loginBox").style.display = "none";
+                document.getElementById("dataBox").style.display = "block";
+                loadData();
+            } else {
+                document.getElementById("loginMsg").innerText = "Invalid Username or Password!";
+            }
+        }
+
+        async function loadData() {
+            try {
+                // ✅ Google Sheet CSV link
+                let sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQc4zIDq3TY9jCAn3S3GeTTke_GSKh-f5498h1LPTPPe5IGMDl2F3WWyNE6LLRt6FTFGI3F2vgOYaoS/pub?gid=453886173&single=true&output=csv";
+
+                let response = await fetch(sheetURL);
+                let data = await response.text();
+
+                // ✅ Parse CSV correctly
+                let rows = data.trim().split("\n").map(r => r.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/));
+
+                allRows = rows;
+
+                // Render table
+                renderTable(rows);
+            } catch (err) {
+                alert("⚠️ Error loading data: " + err);
+            }
+        }
+
+        function renderTable(rows) {
+            // Table header
+            let headHTML = "<tr>";
+            rows[0].forEach(col => headHTML += `<th>${col}</th>`);
+            headHTML += "</tr>";
+            document.getElementById("tableHead").innerHTML = headHTML;
+
+            // Table body
+            let bodyHTML = "";
+            for (let i = 1; i < rows.length; i++) {
+                bodyHTML += "<tr>";
+                rows[i].forEach(val => bodyHTML += `<td>${val}</td>`);
+                bodyHTML += "</tr>";
+            }
+            document.getElementById("tableBody").innerHTML = bodyHTML;
+        }
+
+        function filterTable() {
+            let query = document.getElementById("searchBox").value.toLowerCase();
+            let filtered = [allRows[0]];
+            for (let i = 1; i < allRows.length; i++) {
+                if (allRows[i].join(" ").toLowerCase().includes(query)) {
+                    filtered.push(allRows[i]);
+                }
+            }
+            renderTable(filtered);
+        }
+
+        function downloadExcel() {
+            // ✅ Direct Excel download
+            let sheetURL = "https://docs.google.com/spreadsheets/d/1nfSVdW4jf_JRnjPjWYDPIVtDUK5mlnvfe19FZmZoI9Q/export?format=xlsx";
+            window.open(sheetURL, "_blank");
+        }
+    </script>
+</body>
+
+</html>

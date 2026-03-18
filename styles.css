@@ -1,0 +1,350 @@
+:root {
+    --maxw: 1000px;
+    --accent: #2c7;
+    --bg: #f7f7f8;
+    --primary: #003366;
+    --gold: #ffcc00;
+}
+
+
+/* Reset + Base */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    margin: 0;
+    background: var(--bg);
+    color: #222;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 16px;
+}
+
+
+/* Header */
+
+.site-header {
+    background: #111;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.nav {
+    margin-left: auto;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.nav a:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+
+/* College Info Banner */
+
+.college-info {
+    background: linear-gradient(90deg, var(--primary), #0055aa);
+    color: #fff;
+    text-align: center;
+    padding: 20px 15px;
+    border-bottom: 4px solid var(--gold);
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.college-info h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.college-info h2 {
+    margin: 5px 0 10px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.college-info p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+
+/* Hero Section (no background) */
+
+.hero {
+    background: none;
+    color: var(--primary);
+    text-align: center;
+    padding: 36px 20px;
+    position: relative;
+}
+
+.hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    /* reduced space */
+}
+
+
+/* Department name */
+
+.dept-name {
+    background: none;
+    padding: 3px 5px;
+    color: var(--primary);
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-size: 32px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+
+/* Hero title (Akshayam Tech Fest 2k25 → gradient style) */
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    /* reduced gap */
+    margin-top: 0;
+    /* removed extra top margin */
+}
+
+.hero-title {
+    font-size: 2.4rem;
+    margin: 0;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff5722, #ff9800);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+    font-size: 1rem;
+    margin: 0;
+    color: #444;
+    font-style: italic;
+}
+
+
+/* CTA */
+
+.hero .btn {
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    transition: transform .16s ease, box-shadow .16s ease;
+}
+
+.hero .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+
+/* About Section */
+
+.container about {
+    align-items: center;
+}
+
+.about-right {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.about-right h2 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.about-right p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+
+/* Events Section */
+
+.section-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.event-card {
+    background: #f5f5f5;
+    border: 2px solid var(--primary);
+    padding: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.event-card:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+
+/* Common Sections */
+
+.about,
+.events,
+.contact,
+.participants {
+    background: #fff;
+    margin: 16px 0;
+    padding: 18px;
+    border-radius: 8px;
+}
+
+.event-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+
+/* Table (Admin page) */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+th,
+td {
+    border: 1px solid #999;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background: #eee;
+}
+
+.actions {
+    margin: 10px 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#searchBox {
+    padding: 6px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    width: 250px;
+}
+
+
+/* Footer */
+
+.site-footer {
+    padding: 12px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+
+/* Responsive */
+
+@media (max-width:700px) {
+    .nav {
+        position: absolute;
+        right: 16px;
+        top: 60px;
+        background: #111;
+        padding: 10px;
+        border-radius: 8px;
+        display: none;
+        flex-direction: column;
+    }
+    .nav.open {
+        display: flex;
+    }
+    .menu-btn {
+        display: block;
+        margin-left: auto;
+    }
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    .dept-name {
+        font-size: 24px;
+    }
+    .college-info h1 {
+        font-size: 1.6rem;
+    }
+}
